@@ -1,0 +1,8 @@
+{
+  "name": "Exercises",
+  "paths": [
+    "src/vendor"
+  ],
+  "local": [],
+  "dependencies": {}
+}
