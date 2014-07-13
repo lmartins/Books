@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="helloWorld" >
+<head>
+  <meta charset="UTF-8">
+  <title>Angular App...</title>
+  <link rel="stylesheet" href="../build/css/main.css" media="screen" title="no title" charset="utf-8">
+</head>
+<body>
+  <div class="Page">
+    <h1>Chapter 1</h1>
+    <div ng-controller="HelloController">
+      <p>{{greeting.text}}, World</p>
+      <input type="text" ng-model="greeting.text">
+    </div>
+
+    <div ng-controller="CartController">
+      <h3>Your Shopping Cart</h3>
+      <div ng-repeat="item in items">
+        <span>{{item.title}}</span>
+        <input type="text" ng-model="item.quantity">
+        <span>{{item.price | currency}}</span>
+        <span>{{item.price * item.quantity | currency}}</span>
+        <button name="button" ng-click="remove($index)">Remove</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../build/js/main.bundle.js" charset="utf-8"></script>
+
+</body>
+</html>

@@ -1,5 +1,5 @@
 "use strict";
-
+sdfsdf
 var
   // $      = require('jquery'),
   // events = require('./helpers/pubsub'),
@@ -16,7 +16,8 @@ function warn (thing) {
 
 function note (thing) {
   console.log(["NOTE:", thing].join(' '));
-}
+};
+
 
 function parseAge (age) {
   if (!_.isString(age)) fail('Expecting a string');

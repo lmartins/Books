@@ -1,0 +1,8 @@
+{
+  "name": "JSNinjaBook",
+  "paths": [],
+  "local": [],
+  "dependencies": {
+    "component/query": "*"
+  }
+}

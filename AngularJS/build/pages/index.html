@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="gemStore">
+<head>
+  <meta charset="UTF-8">
+  <title>Angular App...</title>
+  <link rel="stylesheet" href="../css/main.css" media="screen" title="no title" charset="utf-8">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap/3.2.0/css/bootstrap-theme.min.css" >
+</head>
+<body>
+  <div class="Page" ng-controller="StoreController as store">
+    <div class="product" ng-repeat="product in store.products | orderBy: '-price'" ng-hide="product.soldOut" >
+
+      <product-title></product-title>
+
+      <!-- Gallery -->
+      <div class="galery" ng-controller="GalleryController as gallery" ng-show="product.images.length">
+        <img ng-src="{{ product.images[gallery.current] }}">
+        <ul class="list-inline thumbs">
+          <li class="thumbnail" ng-repeat="image in product.images">
+            <img ng-src="{{image}}" alt="">
+          </li>
+        </ul>
+      </div>
+      <button ng-show="store.product.canPurchase" ng-click="clickToOpen">Add to Cart</button>
+
+      <product-panels></product-panels>
+
+      <section ng-controller="CommentsController as commentsCtrl">
+        <div id="messagesDiv">
+          <div ng-repeat="msg in messages"><em>{{msg.from}}</em>: {{msg.body}}</div>
+        </div>
+        <input type="text" ng-model="name" placeholder="Name">
+        <input type="text" ng-model="msg" ng-keydown="addMessage($event)" placeholder="Message...">
+      </section>
+
+    </div>
+  </div>
+  <!--<script src="//cdn.jsdelivr.net/jquery/2.1.1/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/bootstrap/3.2.0/js/bootstrap.min.js"></script>-->
+  <script src="../js/main.bundle.js" charset="utf-8"></script>
+  <script src='https://cdn.firebase.com/js/client/1.0.17/firebase.js'></script>
+  <script src='https://cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js'></script>
+</body>
+</html>
